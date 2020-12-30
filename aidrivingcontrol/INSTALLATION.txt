@@ -1,0 +1,50 @@
+AI DRIVING CONTROL - SCRIPT VERSION INSTALLATION GUIDE
+======================================================
+
+1) Extract folder AIDRIVINGCONTROL to your mission root folder.
+
+2) Insert or create this lines on DESCRIPTION.EXT:
+
+	class cfgFunctions{
+		//AI Driving Control (script version)
+		#include "aidrivingcontrol\cfgfunctions.hpp"
+	};
+
+	class CfgRemoteExec{
+		//AI Driving Control (script version)
+		#include "aidrivingcontrol\cfgremoteexec.hpp"
+	};
+
+3) Insert or create this lines on INITSERVER.SQF:
+
+	//AI Driving Control (script version)
+	null = execVM "aidrivingcontrol\init.sqf";
+
+3.1) Insert or create this lines on INITPLAYERLOCAL.SQF:
+
+	//AI Driving Control (script version)
+	if !(isServer) then{
+		null = execVM "aidrivingcontrol\init.sqf";
+	};
+
+4) Spawned vehicles:
+
+	To initiate script on spawned vehicle(s) execute this once (server or client):
+
+	<vehicle> remoteExec ["AIDC_fnc_init"];
+
+	Also accepts arrays:
+	[<vehicle1>,<vehicle2>,...] remoteExec ["AIDC_fnc_init"];
+
+	Also may be used to add handleDamage EH (no damage) to spawned gates:
+	<gate> remoteExec ["AIDC_fnc_init"];
+	[<gate1>,<gate2>,...] remoteExec ["AIDC_fnc_init"];
+
+	Or combine both vehicles and gates:
+	[<gate1>,<vehicle2>,<gate2>,<vehicle1>,...] remoteExec ["AIDC_fnc_init"];
+
+=============================================================================================================================
+
+Zeus vehicles and gates are initiated automatically once steps 1), 2), 3) and 3.1) are executed. Usable by all clients's AI.
+
+Vehicles and gates spawned (spawned != zeus) on different machines will be usable by all clients's AI if step 4) is executed.

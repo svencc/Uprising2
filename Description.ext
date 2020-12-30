@@ -1,0 +1,36 @@
+// Author
+author = "Creeper";     
+
+// Mission name
+onLoadName = "Altis Occupied"; 
+
+// Description
+onLoadMission = "Altis is occupied by AAF and CSAT. IAF resistance grows up. Keep down the insurgency... "; 
+
+// Preview picture
+// 2:1 aspect ratio (different aspect are rendered correctly as well, but won't cover the whole area).
+// Ideally 1024x512 pixels.
+loadScreen = "pictures\altis_occupied.paa"; 
+
+respawn=3;
+
+class Header
+{
+	gameType = CTI;     // Game type
+	minPlayers = 1;	    // minimum number of players the mission supports
+	maxPlayers = 10;	    // maximum number of players the mission supports
+};
+
+// Enables debug console for admins
+//enableDebugConsole = 1;
+disabledAI = 1;
+
+class cfgFunctions{
+	//AI Driving Control (script version)
+	#include "aidrivingcontrol\cfgfunctions.hpp"
+};
+
+class CfgRemoteExec{
+	//AI Driving Control (script version)
+	#include "aidrivingcontrol\cfgremoteexec.hpp"
+};

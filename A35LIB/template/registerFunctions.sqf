@@ -1,0 +1,1 @@
+A35LIB_db_exampleFunction = compile preprocessFileLineNumbers (A35LIB_PATH+"template\functions\fn_exampleFunction.sqf");

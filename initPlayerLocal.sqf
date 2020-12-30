@@ -1,0 +1,19 @@
+// Executed locally when player joins mission (includes both mission start and JIP). 
+
+// Task					Applies To		JIP		Related To		Exec Environment	Notes
+// initServer.sqf		Server			-		Event Scripts	Scheduled			-	
+// initPlayerLocal.sqf	Client			+		Event Scripts	Scheduled			-
+// initPlayerServer.sqf Server			+		Event Scripts	Scheduled			-
+// init.sqf				All				-		-				-					-	
+
+/*
+ *	player	Object
+ *	didJIP	Boolean
+ */
+params ["_player", "_didJIP"];
+
+
+//AI Driving Control (script version) (add to all Players)
+if !(isServer) then{
+	null = execVM "aidrivingcontrol\init.sqf";
+};
